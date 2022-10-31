@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_marginTop="130dp"
+        android:textSize="35dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Ingreso" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_marginTop="15dp"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Login Usuario" />
+
+    <EditText
+        android:id="@+id/etUsuario"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:inputType="textPersonName"
+        android:hint="Por Ejemplo PedroP" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:text="Clave" />
+
+    <EditText
+        android:id="@+id/etClave"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:inputType="textPassword"
+        android:hint="Por Ejemplo Xhfgt65" />
+
+    <Button
+        android:id="@+id/btnIngresar"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="ingresar"
+        android:textSize="35dp"
+        android:text="Ingresar" />
+
+    <Button
+        android:id="@+id/btnLimpiarDatos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="35dp"
+        android:onClick="limpiar"
+        android:layout_marginTop="20dp"
+        android:text="Limpiar" />
+</LinearLayout>
