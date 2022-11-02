@@ -71,11 +71,11 @@ public class UsuarioActivity extends AppCompatActivity {
 
             // Respuesta De La Base De Datos
             if (respuesta == 0) {
-                Toast.makeText(this, "Error Guardando Regristro", Toast.LENGTH_LONG).show();
-                System.out.println("Guarda error");
+                Toast.makeText(this, "ERROR, El Usuario NO Se Guardo", Toast.LENGTH_LONG).show();
+                System.out.println("ERROR, El Usuario No Se Guardo");
             } else {
-                Toast.makeText(this, "Guardando Regristro Exitoso", Toast.LENGTH_LONG).show();
-                System.out.println("Guardando Exitosamente");
+                Toast.makeText(this, "Guardando Regristro Exitosamente", Toast.LENGTH_LONG).show();
+                System.out.println("Guardando Regristro Exitosamente");
                 limpiarCampos();
             }
 
@@ -92,26 +92,32 @@ public class UsuarioActivity extends AppCompatActivity {
             jetIdentificacion.requestFocus();
         } else {
             SQLiteDatabase fila = admin.getReadableDatabase();
-            Cursor dato = fila.rawQuery("select * from TblCliente where identificacion = '" + identificacion + "'", null);
+            Cursor dato = fila.rawQuery("select * from TblCliente where identificacion='" + identificacion + "'", null);
 
             if (dato.moveToNext()) {
-                jetIdentificacion.setText(dato.getString(1));
-                jetNombre.setText(dato.getString(2));
-                jetProfesion.setText(dato.getString(3));
-                jetEmpresa.setText(dato.getString(4));
-                jetSalario.setText(dato.getString(5));
-                jetExtras.setText(dato.getString(6));
-                jetGastos.setText(dato.getString(7));
-                System.out.println("Por Aqui Paso");
+                System.out.println("Usuario Encontrado Existosamente En La Base De Datos");
+                Toast.makeText(this, "Usuario Encontrado Existosamente En La Base De Datos", Toast.LENGTH_LONG).show();
 
-                if (dato.getString(7).equals("si")) {
+                // Los Valores Que Me Retorno La Base De Datos Los Llevo, A Mi Formulario XML
+                jetNombre.setText(dato.getString(1));
+                jetProfesion.setText(dato.getString(2));
+                jetEmpresa.setText(dato.getString(3));
+                jetSalario.setText(dato.getString(4));
+                jetExtras.setText(dato.getString(5));
+                jetGastos.setText(dato.getString(6));
+
+                // Validando Que El Usuario Este Activo En Mi Base De Datos
+                String userActive = dato.getString(7);
+
+                if (userActive.equals("si")) {
                     jcbActivo.setChecked(true);
                 } else {
                     jcbActivo.setChecked(false);
                 }
-
             } else {
-                Toast.makeText(this, "Cliente No Registrado", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "El Cliente No Esta Registrado En La Base De Datos", Toast.LENGTH_LONG).show();
+                jetIdentificacion.requestFocus();
+                System.out.println("El Cliente No Esta Registrado En La Base De Datos");
             }
         }
     }
