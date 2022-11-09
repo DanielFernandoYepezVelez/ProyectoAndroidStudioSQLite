@@ -1,187 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
-    tools:context=".CreditoActivity">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:orientation="vertical"
+android:layout_height="match_parent"
+tools:context=".CreditoActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:layout_gravity="center"
-        android:textSize="30dp"
-        android:layout_marginTop="90dp"
-        android:text="Estudio Creditos" />
+
+<TextView
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_gravity="center"
+    android:textSize="30dp"
+    android:gravity="center"
+    android:text="Estudio Credito" />
+
+<EditText
+    android:id="@+id/etcodigoprestamo"
+    android:layout_width="350dp"
+    android:layout_marginTop="10dp"
+    android:gravity="center"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_gravity="center"
+    android:textSize="35dp"
+    android:ems="10"
+    android:inputType="textPersonName"
+    android:hint="Codigo Credito"  />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:orientation="horizontal">
 
     <EditText
-        android:id="@+id/etCodigoCredito"
-        android:layout_width="match_parent"
+        android:id="@+id/etIdentificacion"
+        android:layout_width="200dp"
+        android:gravity="center"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="30dp"
         android:ems="10"
-        android:textSize="20dp"
-        android:textAlignment="center"
         android:inputType="textPersonName"
-        android:hint="Codigo Credito" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/etIdentificacion"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Identificación"
-            android:inputType="number"
-            android:textSize="20dp"
-            android:textAlignment="center" />
-
-        <Button
-            android:id="@+id/btnBuscarCliente"
-            android:layout_width="100dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Buscar Cliente" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center_vertical"
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"
-        android:text="Nombre: " />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center_vertical"
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"
-        android:text="Profesión: " />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center_vertical"
-        android:layout_marginLeft="10dp"
-        android:textSize="20dp"
-        android:text="Salario: " />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center_vertical"
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"
-        android:text="Ingresos Extras: " />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center_vertical"
-        android:layout_marginLeft="10dp"
-        android:textSize="20dp"
-        android:text="Gastos: " />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="214dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:textSize="20dp"
-            android:layout_marginLeft="10dp"
-            android:text="Valor Prestamo: " />
-
-        <Button
-            android:id="@+id/btnEjecutarPrestamo"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:textSize="15dp"
-            android:layout_marginRight="10dp"
-            android:text="Ejecutar" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnGuardar"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="20dp"
-            android:text="Guardar" />
-
-        <Button
-            android:id="@+id/btnConsultar"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:layout_marginRight="10dp"
-            android:textSize="20dp"
-            android:text="Consultar" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnAnular"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:textSize="20dp"
-            android:text="Anular" />
-
-        <Button
-            android:id="@+id/btnRegresar"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:layout_marginRight="10dp"
-            android:textSize="20dp"
-            android:text="Regresar" />
-    </LinearLayout>
+        android:hint="identificacion"  />
 
     <Button
-        android:id="@+id/btnCancelar"
-        android:layout_width="280dp"
-        android:layout_gravity="center"
+        android:id="@+id/btBuscar"
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:textSize="20dp"
-        android:text="Cancelar" />
+        android:textSize="30dp"
+        android:layout_weight="1"
+        android:text="buscar" />
+
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_gravity="center"
+    android:layout_marginTop="10dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tvusuario"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="30dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:hint="nombre" />
+
+    <TextView
+        android:id="@+id/tvprofesion"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:hint="Profesion" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_gravity="center"
+    android:layout_marginTop="10dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tvsalario"
+        android:layout_width="155dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:hint="salario"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/tvingresoExtra"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:hint="ingreso Extra" />
+</LinearLayout>
+
+<TextView
+    android:id="@+id/tvgastos"
+    android:layout_width="350dp"
+    android:gravity="center"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content"
+    android:textSize="33dp"
+    android:hint="Gastos" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_gravity="center"
+    android:layout_marginTop="10dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tvvalorPrestamo"
+        android:layout_width="196dp"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:hint="Valor prestamo"
+        android:textSize="28dp" />
+
+    <Button
+        android:id="@+id/btejecutar"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity=""
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="23dp"
+        android:text="Ejecutar" />
+
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_gravity="center"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/btguardar"
+        android:layout_width="198dp"
+        android:layout_height="70dp"
+        android:layout_weight="1"
+        android:text="guardar"
+        android:textSize="23dp" />
+
+    <Button
+        android:id="@+id/btconsultar"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_weight="1"
+        android:text="consultar"
+        android:textSize="23dp" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_gravity="center"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/btanular"
+        android:layout_width="184dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="anular"
+        android:textSize="23dp" />
+
+    <Button
+        android:id="@+id/btregrsar"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_weight="1"
+        android:textSize="23dp"
+        android:text="regresar" />
+</LinearLayout>
+
+<Button
+    android:id="@+id/btcancelar"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_gravity="center"
+    android:text="cancelar"
+    android:textSize="23dp" />
 
 </LinearLayout>

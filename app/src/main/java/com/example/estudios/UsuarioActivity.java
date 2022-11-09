@@ -3,6 +3,7 @@ package com.example.estudios;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -18,7 +19,8 @@ public class UsuarioActivity extends AppCompatActivity {
      ClsOpenHelper admin = new ClsOpenHelper(this, "banco.bd", null, 1);
 
      String identificacion, nombre, profesion, empresa, salario, extras, gastos;
-     Long respuesta;
+     long respuesta;
+     byte sw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class UsuarioActivity extends AppCompatActivity {
         jetGastos = findViewById(R.id.etgastos);
 
         jcbActivo = findViewById(R.id.cbactivo);
+
+        sw = 0;
     }
 
     public void guardar(View view) {
@@ -65,9 +69,16 @@ public class UsuarioActivity extends AppCompatActivity {
             registro.put("ingresoExtra", Integer.parseInt(extras));
             registro.put("gastos", Integer.parseInt(gastos));
 
-            // Insertando En La Base De Datos Y Obteniendo Su Respuesta
+            /* UN MÉTODO PARA DOS OPERACIONES DIFERENTES |*/
             // Los Errores de la base de datos es dificil de visualizar, por eso se debe implementar un try-catch
-            respuesta = fila.insert("TblCliente", null, registro);
+            if (sw == 0) {
+                // Insertando En La Base De Datos Y Obteniendo Su Respuesta
+                respuesta = fila.insert("TblCliente", null, registro);
+            } else {
+                // Actualizando En La Base De Datos Y Obteniendo Su Respuesta
+                respuesta = fila.update("TblCliente", registro, "identificacion='" + identificacion + "'", null);
+                sw = 0;
+            }
 
             // Respuesta De La Base De Datos
             if (respuesta == 0) {
@@ -84,7 +95,7 @@ public class UsuarioActivity extends AppCompatActivity {
         }
     }
 
-    public void consultar(View view) {
+    public void buscar(View view) {
         identificacion = jetIdentificacion.getText().toString();
 
         if (identificacion.isEmpty()) {
@@ -95,6 +106,7 @@ public class UsuarioActivity extends AppCompatActivity {
             Cursor dato = fila.rawQuery("select * from TblCliente where identificacion='" + identificacion + "'", null);
 
             if (dato.moveToNext()) {
+                sw = 1;
                 System.out.println("Usuario Encontrado Existosamente En La Base De Datos");
                 Toast.makeText(this, "Usuario Encontrado Existosamente En La Base De Datos", Toast.LENGTH_LONG).show();
 
@@ -122,6 +134,57 @@ public class UsuarioActivity extends AppCompatActivity {
         }
     }
 
+    public void anular(View view) {
+        if (sw == 0) {
+            Toast.makeText(this, "Debe Primero Consultar El Registro", Toast.LENGTH_LONG).show();
+            jetIdentificacion.requestFocus();
+        } else {
+            identificacion = jetIdentificacion.getText().toString();
+
+            if (identificacion.isEmpty()) {
+                Toast.makeText(this, "La Identificacion Es Obligatorios", Toast.LENGTH_LONG).show();
+                jetIdentificacion.requestFocus();
+            } else {
+                // Estableciendo La Conexion Con La Base
+                // Modos De Apertura De Una Base De Datos (Escritura o Lectura)
+                SQLiteDatabase fila = admin.getWritableDatabase();
+
+                // Aqui Va En El Contenedor Donde Va La Información Para La Base de datos
+                ContentValues registro = new ContentValues();
+                registro.put("activo", "no");
+
+                /* UN MÉTODO PARA DOS OPERACIONES DIFERENTES |*/
+                // Los Errores de la base de datos es dificil de visualizar, por eso se debe implementar un try-catch
+
+                // Actualizando En La Base De Datos Y Obteniendo Su Respuesta
+                respuesta = fila.update("TblCliente", registro, "identificacion='" + identificacion + "'", null);
+                sw = 0;
+
+                // Respuesta De La Base De Datos
+                if (respuesta == 0) {
+                    Toast.makeText(this, "ERROR, El Usuario NO Se Anulo", Toast.LENGTH_LONG).show();
+                    System.out.println("ERROR, El Usuario No Se Anulo");
+                } else {
+                    Toast.makeText(this, "Anulando Regristro Exitosamente", Toast.LENGTH_LONG).show();
+                    System.out.println("Anulando Regristro Exitosamente");
+                    limpiarCampos();
+                }
+
+                // Cerrando La Conexion de la base de datos
+                fila.close();
+            }
+        }
+    }
+
+    public void regresar(View view) {
+        Intent intentMenu = new Intent(this, MenuActivity.class);
+        startActivity(intentMenu);
+    }
+
+    public void cancelar(View view) {
+        limpiarCampos();
+    }
+
     private void limpiarCampos() {
         jetIdentificacion.setText("");
         jetNombre.setText("");
@@ -133,5 +196,6 @@ public class UsuarioActivity extends AppCompatActivity {
 
         jcbActivo.setChecked(false);
         jetIdentificacion.requestFocus();
+        sw = 0;
     }
 }
