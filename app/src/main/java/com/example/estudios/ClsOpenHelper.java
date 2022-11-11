@@ -19,7 +19,7 @@ public class ClsOpenHelper extends SQLiteOpenHelper {
         "activo text not null default 'si')");
 
         db.execSQL("create table TblCredito(codigoCredito text primary key, " +
-        "identificacion text not null, valorPrestamo integer not null, " +
+        "identificacion text not null, valorPestamo integer not null, " +
         "activo text not null default 'si', constraint pk_credito " +
         "foreign key(identificacion) references TblCliente(identificacion))");
     }

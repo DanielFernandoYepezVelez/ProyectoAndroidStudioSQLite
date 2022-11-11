@@ -18,7 +18,7 @@ tools:context=".CreditoActivity">
     android:text="Estudio Credito" />
 
 <EditText
-    android:id="@+id/etcodigoprestamo"
+    android:id="@+id/etcodigoPrestamo"
     android:layout_width="350dp"
     android:layout_marginTop="10dp"
     android:gravity="center"
@@ -51,10 +51,11 @@ tools:context=".CreditoActivity">
         android:hint="identificacion"  />
 
     <Button
-        android:id="@+id/btBuscar"
+        android:id="@+id/btnBuscar"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:textSize="30dp"
+        android:onClick="buscarUsuario"
         android:layout_weight="1"
         android:text="buscar" />
 
@@ -70,7 +71,7 @@ tools:context=".CreditoActivity">
     android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/tvusuario"
+        android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:textSize="30dp"
@@ -79,7 +80,7 @@ tools:context=".CreditoActivity">
         android:hint="nombre" />
 
     <TextView
-        android:id="@+id/tvprofesion"
+        android:id="@+id/tvProfesion"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:textSize="30dp"
@@ -98,7 +99,7 @@ tools:context=".CreditoActivity">
     android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/tvsalario"
+        android:id="@+id/tvSalario"
         android:layout_width="155dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -107,7 +108,7 @@ tools:context=".CreditoActivity">
         android:textSize="30dp" />
 
     <TextView
-        android:id="@+id/tvingresoExtra"
+        android:id="@+id/tvIngresoExtra"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -117,7 +118,7 @@ tools:context=".CreditoActivity">
 </LinearLayout>
 
 <TextView
-    android:id="@+id/tvgastos"
+    android:id="@+id/tvGastos"
     android:layout_width="350dp"
     android:gravity="center"
     android:layout_marginTop="10dp"
@@ -138,7 +139,7 @@ tools:context=".CreditoActivity">
     android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/tvvalorPrestamo"
+        android:id="@+id/tvValorPrestamo"
         android:layout_width="196dp"
         android:layout_height="60dp"
         android:layout_weight="1"
@@ -148,12 +149,13 @@ tools:context=".CreditoActivity">
         android:textSize="28dp" />
 
     <Button
-        android:id="@+id/btejecutar"
+        android:id="@+id/btnEjecutar"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_gravity=""
         android:layout_weight="1"
         android:gravity="center"
+        android:onClick="calcularPrestamo"
         android:textSize="23dp"
         android:text="Ejecutar" />
 
@@ -169,15 +171,16 @@ tools:context=".CreditoActivity">
     android:orientation="horizontal">
 
     <Button
-        android:id="@+id/btguardar"
+        android:id="@+id/btnGuardar"
         android:layout_width="198dp"
         android:layout_height="70dp"
         android:layout_weight="1"
         android:text="guardar"
+        android:onClick="guardarPrestamo"
         android:textSize="23dp" />
 
     <Button
-        android:id="@+id/btconsultar"
+        android:id="@+id/btnConsultar"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:layout_weight="1"
@@ -195,7 +198,7 @@ tools:context=".CreditoActivity">
     android:orientation="horizontal">
 
     <Button
-        android:id="@+id/btanular"
+        android:id="@+id/btnAnular"
         android:layout_width="184dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -203,7 +206,7 @@ tools:context=".CreditoActivity">
         android:textSize="23dp" />
 
     <Button
-        android:id="@+id/btregrsar"
+        android:id="@+id/btnRegrsar"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:layout_weight="1"
@@ -212,7 +215,7 @@ tools:context=".CreditoActivity">
 </LinearLayout>
 
 <Button
-    android:id="@+id/btcancelar"
+    android:id="@+id/btnCancelar"
     android:layout_width="match_parent"
     android:layout_height="64dp"
     android:layout_marginTop="15dp"
