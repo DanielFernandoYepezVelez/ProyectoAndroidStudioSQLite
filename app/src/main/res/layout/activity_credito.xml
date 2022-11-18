@@ -176,7 +176,7 @@ tools:context=".CreditoActivity">
         android:layout_height="70dp"
         android:layout_weight="1"
         android:text="guardar"
-        android:onClick="guardarPrestamo"
+        android:onClick="guardarCredito"
         android:textSize="23dp" />
 
     <Button
@@ -184,6 +184,7 @@ tools:context=".CreditoActivity">
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:layout_weight="1"
+        android:onClick="consultarCredito"
         android:text="consultar"
         android:textSize="23dp" />
 </LinearLayout>
@@ -202,6 +203,7 @@ tools:context=".CreditoActivity">
         android:layout_width="184dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:onClick="anularCredito"
         android:text="anular"
         android:textSize="23dp" />
 
@@ -210,6 +212,7 @@ tools:context=".CreditoActivity">
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:layout_weight="1"
+        android:onClick="regresar"
         android:textSize="23dp"
         android:text="regresar" />
 </LinearLayout>
@@ -222,6 +225,7 @@ tools:context=".CreditoActivity">
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
     android:layout_gravity="center"
+    android:onClick="cancelar"
     android:text="cancelar"
     android:textSize="23dp" />
 

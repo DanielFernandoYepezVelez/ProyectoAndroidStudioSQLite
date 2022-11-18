@@ -82,11 +82,11 @@ public class UsuarioActivity extends AppCompatActivity {
 
             // Respuesta De La Base De Datos
             if (respuesta == 0) {
+                //System.out.println("ERROR, El Usuario No Se Guardo");
                 Toast.makeText(this, "ERROR, El Usuario NO Se Guardo", Toast.LENGTH_LONG).show();
-                System.out.println("ERROR, El Usuario No Se Guardo");
             } else {
+                //System.out.println("Guardando Regristro Exitosamente");
                 Toast.makeText(this, "Guardando Regristro Exitosamente", Toast.LENGTH_LONG).show();
-                System.out.println("Guardando Regristro Exitosamente");
                 limpiarCampos();
             }
 
@@ -107,7 +107,7 @@ public class UsuarioActivity extends AppCompatActivity {
 
             if (dato.moveToNext()) {
                 sw = 1;
-                System.out.println("Usuario Encontrado Existosamente En La Base De Datos");
+                //System.out.println("Usuario Encontrado Existosamente En La Base De Datos");
                 Toast.makeText(this, "Usuario Encontrado Existosamente En La Base De Datos", Toast.LENGTH_LONG).show();
 
                 // Los Valores Que Me Retorno La Base De Datos Los Llevo, A Mi Formulario XML
@@ -127,9 +127,9 @@ public class UsuarioActivity extends AppCompatActivity {
                     jcbActivo.setChecked(false);
                 }
             } else {
+                //System.out.println("El Cliente No Esta Registrado En La Base De Datos");
                 Toast.makeText(this, "El Cliente No Esta Registrado En La Base De Datos", Toast.LENGTH_LONG).show();
                 jetIdentificacion.requestFocus();
-                System.out.println("El Cliente No Esta Registrado En La Base De Datos");
             }
         }
     }
@@ -162,11 +162,11 @@ public class UsuarioActivity extends AppCompatActivity {
 
                 // Respuesta De La Base De Datos
                 if (respuesta == 0) {
+                    //System.out.println("ERROR, El Usuario No Se Anulo");
                     Toast.makeText(this, "ERROR, El Usuario NO Se Anulo", Toast.LENGTH_LONG).show();
-                    System.out.println("ERROR, El Usuario No Se Anulo");
                 } else {
+                    //System.out.println("Anulando Regristro Exitosamente");
                     Toast.makeText(this, "Anulando Regristro Exitosamente", Toast.LENGTH_LONG).show();
-                    System.out.println("Anulando Regristro Exitosamente");
                     limpiarCampos();
                 }
 
